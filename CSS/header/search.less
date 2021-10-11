@@ -1,0 +1,38 @@
+/*
+头部中的搜索栏部分样式
+*/
+@import '../mixins.less';
+
+.search {
+    position: relative;
+    margin: 40px auto;
+    h1 {
+        display: flex;   
+        justify-content: center;
+    }
+    .search_box{
+        position: absolute;
+        height: 25px;
+        top: 50%;
+        right: 0;
+        // 搜索框
+        input {
+            width: 250px;
+            height: 24px;
+            line-height: 24px;
+            border: none;
+            border-bottom: 1px solid @mianColor;
+            color: @fontColor;
+            outline: none;
+            font-size: 12px;
+        }
+        // 放大镜按钮
+        a{
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background: url('../../images/ico_03.gif');
+            vertical-align: middle;
+        }
+    }
+}

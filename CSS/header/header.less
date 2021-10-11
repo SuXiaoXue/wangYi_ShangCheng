@@ -1,0 +1,144 @@
+/* 
+页面头部（搜索栏，导航栏）样式
+*/
+@import '../mixins.less';
+@mainColor: #f3f3f3;
+// 下拉列表箭头
+.downReeor{
+    position: absolute;
+    top: -6px;
+    left: 0;
+    right: 0;    
+    margin: auto;
+    content: '';
+    display: block;
+    width: 10px;
+    height: 6px;
+    background: url(../../images/ico_02.png);
+}
+#head{
+    .mixins-border(border-bottom; 1px solid @mainColor; 0 2px 2px @mainColor);
+    border-bottom: 1px solid @mainColor;
+    box-shadow: 0 2px 2px @mainColor;
+    // 头部导航栏
+    .head_head {
+        background-color: black;
+        font-size: 12px;
+        line-height: 36px;
+        .left {
+            color: #ccc;
+        }
+        .right {
+            .head_right_ul {
+                &>li {
+                    float: left;
+                    position: relative;
+                    a{
+                        color: #ccc;
+                        padding: 0px 10px;
+                        &:hover{
+                            color: #fff;
+                        }
+                    }
+                    // 客户服务下列表
+                    .head_right_service {
+                        display: none;
+                        position: absolute;
+                        border: 1px solid #ddd;
+                        box-shadow: 0 2px 2px @mainColor;
+                        li {
+                            padding: 0 10px;
+                            a{
+                                display: block;
+                                color: #999;
+                                padding: 0;
+                                border-left: none;
+                                &:hover{
+                                    color: #b4a078;
+                                }
+                            }
+                            &:nth-of-type(-n+3) a{
+                                border-bottom: 1px solid #ddd;
+                            }
+                            &:nth-of-type(3) {
+                                position: relative;
+                                background: url(../../images/phone_bg1.gif) right center no-repeat;
+                                div{
+                                    display: none;
+                                    position: absolute;
+                                    top: 0px;
+                                    left: 68px;
+                                    width: 110px;
+                                    height: 57px;
+                                    line-height: 20px;
+                                    text-align: center;
+                                    background-color: #fff;
+                                    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.02);
+                                    p:nth-of-type(1) {
+                                        font-size: 14px;
+                                        color: #999;
+                                        margin-top: 12px;
+                                    }
+                                    p:nth-of-type(2) {
+                                        color: #999;
+                                    }
+                                }
+
+                            }
+                            &:nth-of-type(3):hover {
+                                background: url(../../images/phone_bg2.gif) right center no-repeat;
+                                div {
+                                    display: block;
+                                }
+                            }
+                        }
+                        &::before{
+                            .downReeor()
+                        }
+                    }
+                    &:nth-child(n+3) a {
+                        border-left: 1px solid #ccc;
+                    }
+                    // 客户服务箭头正常状态
+                    &:nth-child(5) {
+                        padding-right: 15px;
+                        background: url(../../images/customer_bg1.gif) 68px center no-repeat ;
+                    }
+                    // 客户服务箭头点击状态
+                    &:nth-child(5):hover{
+                        padding-right: 15px;
+                        background: url(../../images/customer_bg2.gif) 68px center no-repeat ;
+                        .head_right_service {
+                            display: block;
+                        }
+                    }
+                    // 下载APP图案
+                    &:nth-child(6) {
+                        padding-right: 15px;
+                        background: url(../../images/ico_01.png) 68px center no-repeat ;
+                        div{
+                            display: none;
+                            position: absolute;
+                            left: -33px;
+                            padding: 10px;
+                            background-color: #fff;
+                            box-shadow: 0 0 3px rgba(0,0,0,0.2);
+                            span{
+                                line-height: 20px;
+                                color: #b4a078;
+                            }
+                            &::before {
+                                .downReeor()
+                            }
+                        }
+                        &:nth-child(6):hover {
+                            div {
+                                display: block;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
